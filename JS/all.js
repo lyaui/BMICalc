@@ -97,7 +97,7 @@ var UIController = (function () {
         inputheight: '#add__height',
         inputweight: '#add__weight',
         inputBtn: '.form__btn',
-        panelList: '.result-panel__title',
+        panelList: '.result-panel',
         panelItem: '.result-panel__item',
         resultPanel: '.result-panel',
         resultBtn: '.result__btn',
@@ -118,15 +118,10 @@ var UIController = (function () {
 
         upDateList(arr) {
             //渲染資料
-            let newHtml = '';
-            let title=`<h2 class = "result-panel__title"> BMI紀錄 </h2>`;
+            let newHtml = `<h2 class="result-panel__title"> BMI紀錄 </h2><div class = "container">${arr.map(item => 
+                `<div class="result-panel__item" style="border-left:7px solid ${item.color}" id=${item.id}><div>${item.status}</div><div><span>BMI</span>${item.bmi}</div><div><span>weight</span>${item.weight}</div><div><span>height</span>${item.height}</div><div><span>${item.date}</span></div><div style="width:50px"><button class="remove__btn"><i class="far fa-times-circle"></i></button></div></div>`).join('')}</div>`
 
-            arr.forEach(item => {
-                newHtml = newHtml + `<div class="result-panel__item" style="border-left:7px solid ${item.color}" id=${item.id}><div>${item.status}</div><div><span>BMI</span>${item.bmi}</div><div><span>weight</span>${item.weight}</div><div><span>height</span>${item.height}</div><div><span>${item.date}</span></div><div style="width:50px"><button class="remove__btn"><i class="far fa-times-circle"></i></button></div></div>`
-                return newHtml
-            })
-            document.querySelector(domStrings.panelList).innerHTML = title+newHtml;
-
+            document.querySelector(domStrings.panelList).innerHTML = newHtml;
 
             //渲染按鈕數據
             let thisArr = arr[arr.length - 1];
@@ -146,7 +141,7 @@ var UIController = (function () {
         },
 
         showResultBtn() {
-            
+
             document.querySelector(domStrings.resultBtn).classList.remove('d-none');
             document.querySelector(domStrings.inputBtn).classList.add('d-none');
         },
