@@ -211,6 +211,24 @@ body {
   color: #DEA821;
 }
 
+.clear__btn {
+  font-size: 16px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #424242;
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  padding: 16px;
+}
+
+.clear__btn:hover {
+  color: #DEA821;
+}
+
 .footer {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -87,6 +87,10 @@ var dataController = (function () {
 
             return datas;
         },
+        clearAllData() {
+            datas = [];
+            saveDate()
+        }
     }
 
 })();
@@ -102,7 +106,8 @@ var UIController = (function () {
         resultPanel: '.result-panel',
         resultBtn: '.result__btn',
         resultBmi: '.result__bmi',
-        resultReflash: '.result__reflash'
+        resultReflash: '.result__reflash',
+        clearAllBtn: '.clear__btn'
     }
 
     return {
@@ -164,6 +169,8 @@ var controller = (function (dataCtrl, UICtrl) {
         document.querySelector(DomStrings.inputBtn).addEventListener('click', addNewBmi);
         document.querySelector(DomStrings.resultPanel).addEventListener('click', deletBmi);
         document.querySelector(DomStrings.resultBtn).addEventListener('click', update);
+        document.querySelector(DomStrings.clearAllBtn).addEventListener('click', clearAll);
+
     }
 
     //新增BMI
@@ -214,6 +221,12 @@ var controller = (function (dataCtrl, UICtrl) {
         // 2. 讀取資料
         let datas = dataCtrl.getData();
         UICtrl.upDateList(datas)
+    }
+
+    // 清除所有資料
+    let clearAll = function () {
+        dataCtrl.clearAllData();
+        update()
     }
 
     return {

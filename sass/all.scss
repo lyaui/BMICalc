@@ -25,7 +25,7 @@ body {
     color: $color-font
 }
 
-.d-none{
+.d-none {
     display: none !important
 }
 
@@ -126,6 +126,7 @@ body {
 
     &__bmi {
         font-size: 32px;
+
         span {
             display: block;
             font-size: 14px;
@@ -156,7 +157,7 @@ body {
 
 
 .result-panel {
-    
+
     &__title {
         text-align: center;
         margin-top: 48px;
@@ -205,6 +206,23 @@ body {
     background-color: $color-white;
     padding: 5px;
     transition: all .5s;
+
+    &:hover {
+        color: $color-primary-dark
+    }
+}
+
+.clear__btn {
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: $color-secondary;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+    transition: all .5s;
+    padding: 16px;
 
     &:hover {
         color: $color-primary-dark
